@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php 004</title>
+    <title>Uzduotis - PHP 04</title>
 </head>
 
 <body>
