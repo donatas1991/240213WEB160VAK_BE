@@ -19,7 +19,7 @@
         <button type="submit" name="calculate">Skaičiuoti plota</button>
     </form>
 
-
+<!-- vietoje && galima naudoti || zenkla -->
     <?php
     if (!isset($_POST['calculate']) || empty($_POST['length']) || empty($_POST['width'])) {
     } else {

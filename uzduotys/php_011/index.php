@@ -22,7 +22,12 @@
 
 
     <?php
-    if (!isset($_POST['submit']) || empty($_POST['name']) || empty($_POST['email']) || empty($_POST['birthdate'])) {
+    if (
+        !isset($_POST['submit'])
+        || empty($_POST['name'])
+        || empty($_POST['email'])
+        || empty($_POST['birthdate'])
+    ) {
     } else {
         $name = $_POST['name'];
         $email = $_POST['email'];
