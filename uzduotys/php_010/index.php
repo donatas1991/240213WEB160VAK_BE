@@ -11,7 +11,7 @@
 <body>
     <h2>Stačiakampio ploto skaičiuoklė</h2>
 
-    <form action="http://localhost/240213WEB160VAK_BE/uzduotys/php_010/answer.php" method="post">
+    <form action="http://localhost/240213WEB160VAK_BE/uzduotys/php_010/answer.php" method="GET">
         <label for="length">Stačiakampio ilgis:</label><br>
         <input type="number" id="length" name="length" required><br>
         <label for="width">Stačiakampio plotis:</label><br>
@@ -19,16 +19,6 @@
         <button type="submit" name="calculate">Skaičiuoti plota</button>
     </form>
 
-<!-- vietoje && galima naudoti || zenkla -->
-    <?php
-    if (!isset($_POST['calculate']) || empty($_POST['length']) || empty($_POST['width'])) {
-    } else {
-        $length = $_POST['length'];
-        $width = $_POST['width'];
-        $area = $length * $width;
-        echo $area;
-    }
-    ?>
 
 
 </body>
