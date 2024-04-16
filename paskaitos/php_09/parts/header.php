@@ -1,7 +1,8 @@
-<?php 
+<?php
 
-    $includeBaseDir = 'C:/xampp/htdocs/240213WEB160VAK_BE/paskaitos/php_09'; 
-    $linksBaseDir = 'https://localhost/240213WEB160VAK_BE/paskaitos/php_09'; 
+    $includeBaseDir = 'D:/xampp/htdocs/240213WEB160VAK_BE/paskaitos/php_09';
+    $linksBaseDir = 'http://localhost/240213WEB160VAK_BE/paskaitos/php_09';
+
 ?>
 
 <?php include "$includeBaseDir/database.php"; ?>

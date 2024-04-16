@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?php echo $baseDir; ?>/index.php">Pradžia</a>
+                    <a class="nav-link active" aria-current="page" href="<?php echo $linksBaseDir; ?>/index.php">Pradžia</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $linksBaseDir; ?>/knygos.php">Knygos</a>

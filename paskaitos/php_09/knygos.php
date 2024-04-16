@@ -3,7 +3,11 @@
 
 <?php
 
-    $sql = 'SELECT * FROM `knygos`;';
+    $sql = "SELECT `knygos`.`id`, `pavadinimas`, `puslapiu_skaicius`, `kaina`, GROUP_CONCAT(CONCAT(`vardas`, ' ', `pavarde`) SEPARATOR ', ') AS 'autorius'
+        FROM `knygos`
+        JOIN `knygu_autoriai` ON `knygos`.`id` = `knygu_autoriai`.`knygos_id`
+        JOIN `autoriai` ON `knygu_autoriai`.`autoriaus_id` = `autoriai`.`id`
+        GROUP BY `knygos`.`id`;";
     $result = $conn->query($sql);
 
 ?>
@@ -74,7 +78,7 @@
                             <tr>
                                 <td scope="row"><?php echo $row['id']; ?></td>
                                 <td><?php echo $row['pavadinimas']; ?></td>
-                                <td>Autorius (susitvarkysim kiek vėliau)</td>
+                                <td><?php echo $row['autorius']; ?></td>
                                 <!-- <td>Stulpelis</td> -->
                                 <td><?php echo $row['puslapiu_skaicius']; ?></td>
                                 <td><?php echo $row['kaina']; ?></td>
