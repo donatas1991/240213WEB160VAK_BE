@@ -3,8 +3,8 @@
 
 <?php
 
-$sql = 'SELECT * FROM `knygos`;';
-$result = $conn->query($sql);
+    $sql = 'SELECT * FROM `knygos`;';
+    $result = $conn->query($sql);
 
 ?>
 
@@ -19,11 +19,33 @@ $result = $conn->query($sql);
     </div>
 </header>
 
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <?php
+
+                if (isset($_GET['edited']) && $_GET['edited'] == 'success') {
+                    echo '<p class="text-success">Knygos duomenys atnaujinti sėkmingai.</p>';
+                }
+
+                if (isset($_GET['created']) && $_GET['created'] == 'success') {
+                    echo '<p class="text-success">Nauja knyga pridėta sėkmingai.</p>';
+                }
+
+                if (isset($_GET['deleted']) && $_GET['deleted'] == 'success') {
+                    echo '<p class="text-danger">Knyga sėkmingai pašalinta.</p>';
+                }
+
+            ?>
+        </div>
+    </div>
+</div>
+
 <div class="content pt-5 pb-5">
     <div class="container">
         <div class="row">
             <div class="col">
-                <p><a href="nauja.html" class="btn btn-success">Nauja knyga</a></p>
+                <p><a href="books/nauja.php" class="btn btn-success">Nauja knyga</a></p>
             </div>
         </div>
         <div class="row">
@@ -42,31 +64,31 @@ $result = $conn->query($sql);
                     </thead>
                     <tbody>
 
-                        <?php
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-
+                        <?php 
+                        
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                            
                         ?>
 
-                                <tr>
-                                    <td scope="row"><?php echo $row['id']; ?></td>
-                                    <td><?php echo $row['pavadinimas']; ?></td>
-                                    <td>Autorius (susitvarkysim kiek vėliau)</td>
-                                    <!-- <td>Stulpelis</td> -->
-                                    <td><?php echo $row['puslapiu_skaicius']; ?></td>
-                                    <td><?php echo $row['kaina']; ?></td>
-                                    <td>
-                                        <a href="books/perziureti.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Žiūrėti</a>
-                                        <a href="<?php echo $linksBaseDir; ?>/books/atnaujinti.php" class="btn btn-warning">Atnaujinti</a>
-                                        <a href="<?php echo $linksBaseDir; ?>/books/salinti.php" class="btn btn-danger">Šalinti</a>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td scope="row"><?php echo $row['id']; ?></td>
+                                <td><?php echo $row['pavadinimas']; ?></td>
+                                <td>Autorius (susitvarkysim kiek vėliau)</td>
+                                <!-- <td>Stulpelis</td> -->
+                                <td><?php echo $row['puslapiu_skaicius']; ?></td>
+                                <td><?php echo $row['kaina']; ?></td>
+                                <td>
+                                    <a href="books/perziureti.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Žiūrėti</a>
+                                    <a href="books/atnaujinti.php?id=<?php echo $row['id']; ?>" class="btn btn-warning">Atnaujinti</a>
+                                    <a href="books/salinti.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Šalinti</a>
+                                </td>
+                            </tr>
 
-                            <?php
-                            }
-                        } else {
-                            ?>
+                        <?php
+                                }
+                            } else {
+                        ?>
 
                             <tr>
                                 <td class="text-center" colspan='6'>Deja, bet duomenų neturime.</td>
